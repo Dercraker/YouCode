@@ -22,7 +22,7 @@ const RootLayout = ({ children }: LayoutParams<{}>) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body className={inter.className} style={{ paddingBottom: '400px' }}>
+      <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

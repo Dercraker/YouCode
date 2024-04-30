@@ -2,11 +2,13 @@
 
 import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/header/Header';
-import { AppShell } from '@mantine/core';
+import { LayoutParams } from '@/types/next';
+import { AppShell, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-const RouteLayout = () => {
+const RouteLayout = ({ children }: LayoutParams<{}>) => {
   const [opened, { toggle }] = useDisclosure();
+  const theme = useMantineTheme();
 
   return (
     <AppShell
@@ -20,12 +22,12 @@ const RouteLayout = () => {
       <Header opened={opened} toggle={toggle} />
       <AppShell.Main
         style={{
-          background: '#242424',
+          background: theme.colors.dark[8],
           position: 'relative',
+          zIndex: 1,
+          marginBottom: '400px',
         }}>
-        Navbar is only visible on mobile, links that are rendered in the header
-        on desktop are hidden on mobile in header and rendered in navbar
-        instead.
+        {children}
       </AppShell.Main>
       <Footer />
     </AppShell>
