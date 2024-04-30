@@ -17,6 +17,9 @@ export const { handlers, auth: baseAuth } = NextAuth((req: NextApiRequest) => ({
     // ℹ️ Add this line if you want to add an onboarding page
     // newUser: "/auth/new-user",
   },
+  theme: {
+    logo: '/images/logo-text.png',
+  },
   adapter: PrismaAdapter(prisma),
   providers: getNextAuthConfigProviders(),
   session: {

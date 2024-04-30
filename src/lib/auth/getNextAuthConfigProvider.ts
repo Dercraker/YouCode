@@ -1,7 +1,7 @@
 import { env } from '@/lib/env/server';
 import { logger } from '@/lib/logging/logger';
 import { sendEmail } from '@/lib/mail/sendEmail';
-import { SiteConfig } from '@/site-config';
+import { SiteConfig } from '@/utils/site-config';
 import MagicLinkMail from '@email/MagicLinkEmail';
 import type { NextAuthConfig } from 'next-auth';
 import DiscordProvider from 'next-auth/providers/discord';

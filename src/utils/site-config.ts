@@ -1,7 +1,7 @@
 export const SiteConfig = {
-  title: 'YouCode - Code, Learn, Share',
+  title: 'YouCode',
   description:
-    'YouCode is a platform to code, learn, and share your knowledge with the world. Join us today!',
+    'YouCode is a platform to code, learn, and share your knowledge with the world.',
   prodUrl: 'https://youcode.dercraker.fr',
   domain: 'dercraker.fr',
   appIcon: '/images/icon.png',

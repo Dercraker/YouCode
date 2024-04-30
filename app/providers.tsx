@@ -1,7 +1,7 @@
 'use client';
 
 import themes from '@/styles/themes';
-import { MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { Notifications } from '@mantine/notifications';
 import '@mantine/notifications/styles.css';
@@ -22,15 +22,18 @@ const queryClient = new QueryClient({
 
 const Providers = ({ children }: PropsWithChildren) => {
   return (
-    <MantineProvider theme={themes} defaultColorScheme="dark">
-      <SessionProvider>
-        <Notifications limit={5} position="top-right" />
-        <QueryClientProvider client={queryClient}>
-          {children}
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </SessionProvider>
-    </MantineProvider>
+    <>
+      <ColorSchemeScript defaultColorScheme="auto" />
+      <MantineProvider theme={themes} defaultColorScheme="auto">
+        <SessionProvider>
+          <Notifications limit={5} position="top-right" />
+          <QueryClientProvider client={queryClient}>
+            {children}
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </SessionProvider>
+      </MantineProvider>
+    </>
   );
 };
 

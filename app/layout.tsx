@@ -1,9 +1,8 @@
-import { SiteConfig } from '@/site-config';
 import { LayoutParams } from '@/types/next';
+import { SiteConfig } from '@/utils/site-config';
 import { ColorSchemeScript } from '@mantine/core';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,7 +22,7 @@ const RootLayout = ({ children }: LayoutParams<{}>) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} style={{ paddingBottom: '400px' }}>
         <Providers>{children}</Providers>
       </body>
     </html>

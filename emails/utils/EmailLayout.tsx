@@ -1,5 +1,5 @@
-import { getServerUrl } from "@/lib/server-url";
-import { SiteConfig } from "@/site-config";
+import { getServerUrl } from '@/utils/server-url';
+import { SiteConfig } from '@/utils/site-config';
 import {
   Body,
   Container,
@@ -9,9 +9,9 @@ import {
   Img,
   Link,
   Text,
-} from "@react-email/components";
-import { Tailwind } from "@react-email/tailwind";
-import type { PropsWithChildren } from "react";
+} from '@react-email/components';
+import { Tailwind } from '@react-email/tailwind';
+import type { PropsWithChildren } from 'react';
 
 export const EmailLayout = ({ children }: PropsWithChildren) => {
   const baseUrl = getServerUrl();
@@ -21,8 +21,7 @@ export const EmailLayout = ({ children }: PropsWithChildren) => {
         {
           // Theme can go here
         }
-      }
-    >
+      }>
       <Html>
         <Head />
         <Body className="bg-white font-sans">

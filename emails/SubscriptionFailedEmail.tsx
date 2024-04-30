@@ -1,8 +1,8 @@
-import { getServerUrl } from "@/lib/server-url";
-import { SiteConfig } from "@/site-config";
-import { Preview, Section, Text } from "@react-email/components";
-import Link from "next/link";
-import { EmailLayout } from "./utils/EmailLayout";
+import { getServerUrl } from '@/utils/server-url';
+import { SiteConfig } from '@/utils/site-config';
+import { Preview, Section, Text } from '@react-email/components';
+import Link from 'next/link';
+import { EmailLayout } from './utils/EmailLayout';
 
 export default function SubscribtionFailedEmail() {
   return (
@@ -28,8 +28,7 @@ export default function SubscribtionFailedEmail() {
         <Text className="text-lg leading-6">
           <Link
             className="text-sky-500 hover:underline"
-            href={`${getServerUrl()}/account/billing`}
-          >
+            href={`${getServerUrl()}/account/billing`}>
             Click to Update Payment and Keep Using ${SiteConfig.title}
           </Link>
         </Text>
