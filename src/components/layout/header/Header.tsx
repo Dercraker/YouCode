@@ -1,13 +1,11 @@
-'use client';
-
 import SwitchThemeIcon from '@/components/layout/SwitchTheme/SwitchThemIcon';
 import { LogoSvg } from '@/components/svg/LogoSvg';
+import AuthButtonClient from '@/features/auth/AuthButtonClient';
 import { HeaderLinks } from '@/utils/NavigationLinks';
 import { SiteConfig } from '@/utils/site-config';
 import {
   AppShell,
   Burger,
-  Button,
   Group,
   Stack,
   Title,
@@ -17,7 +15,6 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 import styles from './Header.module.css';
-import AuthButtonClient from '@/features/auth/AuthButtonClient';
 
 interface LandingHeaderProps {
   opened: boolean;

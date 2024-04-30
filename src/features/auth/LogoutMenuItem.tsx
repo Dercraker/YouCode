@@ -2,20 +2,19 @@
 
 import useNotify, { NotifyDto } from '@/hooks/useNotify';
 import { logger } from '@/lib/logging/logger';
-import { Button, Group, rem } from '@mantine/core';
+import { Menu, rem } from '@mantine/core';
 import { IconLogout } from '@tabler/icons-react';
 import { useMutation } from '@tanstack/react-query';
 import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
-const LogoutButton = () => {
+const LogoutMenuItem = () => {
   const { ErrorNotify } = useNotify();
-  const router = useRouter();
 
   const logoutMutation = useMutation({
     mutationFn: () => signOut(),
     onSettled: () => {
-      router.push('/');
+      redirect('/');
     },
     onError: error => {
       logger.error('Error while User try logout', error.message, error.stack, {
@@ -29,20 +28,14 @@ const LogoutButton = () => {
   });
 
   return (
-    <Group justify="end">
-      <Button
-        variant="default"
-        onClick={() => logoutMutation.mutateAsync()}
-        leftSection={
-          <IconLogout
-            style={{ width: rem(16), height: rem(16) }}
-            stroke={1.5}
-          />
-        }>
-        Logout
-      </Button>
-    </Group>
+    <Menu.Item
+      leftSection={
+        <IconLogout style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
+      }
+      onClick={() => logoutMutation.mutateAsync()}>
+      Logout
+    </Menu.Item>
   );
 };
 
-export default LogoutButton;
+export default LogoutMenuItem;

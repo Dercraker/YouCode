@@ -3,7 +3,6 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import type { User } from '@prisma/client';
 import type { Session } from 'next-auth';
 import NextAuth from 'next-auth';
-import { NextRequest } from 'next/server';
 import { prisma } from '../prisma';
 import { setupResendCustomer } from './auth-config-setup';
 import {
@@ -12,7 +11,7 @@ import {
 } from './credentialsProvider';
 import { getNextAuthConfigProviders } from './getNextAuthConfigProvider';
 
-export const { handlers, auth: baseAuth } = NextAuth((req: NextRequest) => ({
+export const { handlers, auth: baseAuth } = NextAuth(req => ({
   pages: {
     signIn: '/auth/signin',
     signOut: '/auth/signout',
