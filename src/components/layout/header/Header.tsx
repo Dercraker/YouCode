@@ -1,7 +1,7 @@
 'use client';
 
+import SwitchThemeIcon from '@/components/layout/SwitchTheme/SwitchThemIcon';
 import { LogoSvg } from '@/components/svg/LogoSvg';
-import styles from '@/styles/Header.module.css';
 import { HeaderLinks } from '@/utils/NavigationLinks';
 import { SiteConfig } from '@/utils/site-config';
 import {
@@ -16,7 +16,8 @@ import {
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
-import SwitchThemeIcon from '../SwitchTheme/SwitchThemIcon';
+import styles from './Header.module.css';
+import AuthButtonClient from '@/features/auth/AuthButtonClient';
 
 interface LandingHeaderProps {
   opened: boolean;
@@ -77,8 +78,7 @@ const Header = ({ opened, toggle }: LandingHeaderProps) => {
           </Group>
           <Group visibleFrom="sm">
             <Group gap="0">{links}</Group>
-            <Button variant="outline">auth</Button>
-            {/* <AuthButtonClient /> */}
+            <AuthButtonClient />
             <SwitchThemeIcon />
           </Group>
         </Group>
@@ -86,10 +86,7 @@ const Header = ({ opened, toggle }: LandingHeaderProps) => {
       <AppShell.Navbar>
         <Stack py="md" px={4} align="center">
           {links}
-          <Button variant="outline" fullWidth>
-            auth
-          </Button>
-          {/* <AuthButtonClient buttonProps={{ fullWidth: true, mx: 'sm' }} /> */}
+          <AuthButtonClient buttonProps={{ fullWidth: true, mx: 'sm' }} />
         </Stack>
       </AppShell.Navbar>
     </>

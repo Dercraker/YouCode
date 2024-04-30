@@ -17,6 +17,6 @@ export const SiteConfig = {
     contact: 'contact@dercraker.fr',
   },
   auth: {
-    password: false as boolean,
+    password: true as boolean,
   },
 };
