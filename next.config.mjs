@@ -6,6 +6,12 @@ jiti('./src/lib/env/server.ts');
 jiti('./src/lib/env/client.ts');
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+};
 
 export default nextConfig;

@@ -1,14 +1,18 @@
 import { env } from '@/lib/env/server';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import type { User } from '@prisma/client';
-import { NextApiRequest } from 'next';
 import type { Session } from 'next-auth';
 import NextAuth from 'next-auth';
+import { NextRequest } from 'next/server';
 import { prisma } from '../prisma';
 import { setupResendCustomer } from './auth-config-setup';
+import {
+  credentialsOverrideJwt,
+  credentialsSignInCallback,
+} from './credentialsProvider';
 import { getNextAuthConfigProviders } from './getNextAuthConfigProvider';
 
-export const { handlers, auth: baseAuth } = NextAuth((req: NextApiRequest) => ({
+export const { handlers, auth: baseAuth } = NextAuth((req: NextRequest) => ({
   pages: {
     signIn: '/auth/signin',
     signOut: '/auth/signout',
@@ -44,7 +48,7 @@ export const { handlers, auth: baseAuth } = NextAuth((req: NextApiRequest) => ({
   },
   events: {
     // 🔑 Add this line and the import to add credentials provider
-    // signIn: credentialsSignInCallback(req),
+    signIn: credentialsSignInCallback(req),
     createUser: async message => {
       const user = message.user;
 
@@ -65,5 +69,5 @@ export const { handlers, auth: baseAuth } = NextAuth((req: NextApiRequest) => ({
     },
   },
   // 🔑 Add this line and the import to add credentials provider
-  // jwt: credentialsOverrideJwt,
+  jwt: credentialsOverrideJwt,
 }));
