@@ -7,6 +7,14 @@ jiti('./src/lib/env/client.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ziicvw3b3izy7dzx.public.blob.vercel-storage.com',
+      },
+    ],
+  },
   logging: {
     fetches: {
       fullUrl: true,

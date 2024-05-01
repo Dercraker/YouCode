@@ -1,6 +1,7 @@
 import AvatarImage from '@/components/ui/Avatar';
 import LogoutButton from '@/features/auth/LogoutButton';
 import { auth } from '@/lib/auth/helper';
+import { LINKS } from '@/utils/NavigationLinks';
 import { Button, Group, Paper, Stack, Text } from '@mantine/core';
 import { RedirectType, redirect } from 'next/navigation';
 
@@ -23,7 +24,11 @@ const UserCard = async () => {
           <Button variant="outline" fullWidth>
             Settings
           </Button>
-          <Button variant="outline" fullWidth>
+          <Button
+            variant="outline"
+            fullWidth
+            component="a"
+            href={LINKS.Admin.href}>
             Admin
           </Button>
         </Stack>
