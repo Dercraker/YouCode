@@ -17,7 +17,13 @@ const LessonsList = ({ lessons, courseId }: LessonsListProps) => {
   ));
 
   return (
-    <Paper shadow="xl" p="xl" withBorder flex={1} mah="80vh">
+    <Paper
+      shadow="xl"
+      p="xl"
+      withBorder
+      flex={1}
+      mah="80vh"
+      style={{ overflowY: 'scroll' }}>
       <Stack>
         <Title order={3}>Lessons</Title>
 

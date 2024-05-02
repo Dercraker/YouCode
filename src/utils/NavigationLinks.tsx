@@ -1,6 +1,11 @@
 import { NavigationLinksType } from '@/lib/Zod/NavigationLinks.schema';
 import { NavigationLinksWithGroupType } from '@/lib/Zod/NavigationLinksWithGroup.schema';
-import { IconBooks, IconCertificate2, IconHome } from '@tabler/icons-react';
+import {
+  IconBooks,
+  IconCertificate2,
+  IconHome,
+  IconSettings,
+} from '@tabler/icons-react';
 
 export const LINKS = {
   Home: {
@@ -9,10 +14,18 @@ export const LINKS = {
     icon: <IconHome />,
   },
   Account: {
-    label: 'Account',
-    href: '/account',
-    icon: <IconHome />,
-    auth: true,
+    DashBoard: {
+      label: 'Account',
+      href: '/account',
+      icon: <IconHome />,
+      auth: true,
+    },
+    Settings: {
+      label: 'Account Settings',
+      href: '/account/settings',
+      icon: <IconSettings />,
+      auth: true,
+    },
   },
   Admin: {
     label: 'Admin',

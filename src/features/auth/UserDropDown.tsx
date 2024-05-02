@@ -1,6 +1,7 @@
 import AvatarImage from '@/components/ui/Avatar';
+import { LINKS } from '@/utils/NavigationLinks';
 import { ActionIcon, Group, Menu, rem, Text } from '@mantine/core';
-import { IconChevronRight, IconSettings } from '@tabler/icons-react';
+import { IconBook, IconChevronRight, IconSettings } from '@tabler/icons-react';
 import { User } from 'next-auth';
 import LogoutMenuItem from './LogoutMenuItem';
 
@@ -46,18 +47,18 @@ const UserDropDown = ({ user }: UserDropDownProps) => {
 
           <Menu.Divider />
 
-          {/* <Menu.Label>Application</Menu.Label>
+          <Menu.Label>Admin</Menu.Label>
           <Menu.Item
             leftSection={
-              <IconStar
+              <IconBook
                 style={{ width: rem(16), height: rem(16) }}
                 stroke={1.5}
-                color={theme.colors.yellow[6]}
               />
             }
-          >
-            Favorite characters
-          </Menu.Item> */}
+            component="a"
+            href={LINKS.AdminCourses.href}>
+            Courses List
+          </Menu.Item>
 
           <Menu.Label>Settings</Menu.Label>
           <Menu.Item
@@ -68,8 +69,8 @@ const UserDropDown = ({ user }: UserDropDownProps) => {
               />
             }
             component="a"
-            href="/account">
-            Account settings
+            href={LINKS.Account.Settings.href}>
+            {LINKS.Account.Settings.label}
           </Menu.Item>
           <LogoutMenuItem />
         </Menu.Dropdown>
