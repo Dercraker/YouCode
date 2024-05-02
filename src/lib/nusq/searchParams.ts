@@ -1,10 +1,6 @@
-import {
-  createSearchParamsCache,
-  parseAsInteger,
-  parseAsString,
-} from 'nuqs/server';
+import { createSearchParamsCache, parseAsInteger } from 'nuqs/server';
 
 export const searchParamsCache = createSearchParamsCache({
   userPage: parseAsInteger.withDefault(1),
-  maxResults: parseAsInteger.withDefault(10),
+  lessonsPage: parseAsInteger.withDefault(1),
 });

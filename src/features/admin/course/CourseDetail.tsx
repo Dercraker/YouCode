@@ -1,3 +1,4 @@
+import { LINKS } from '@/utils/NavigationLinks';
 import {
   AspectRatio,
   Box,
@@ -37,7 +38,15 @@ const CourseDetail = ({ course }: CourseDetailProps) => {
         </Stack>
         <Stack>
           <Button variant="outline">Edit</Button>
-          <Button variant="outline">Edit Lessons</Button>
+          <Button
+            variant="outline"
+            component="a"
+            href={`${LINKS.Lessons.href.replace(
+              '{1}',
+              course.id,
+            )}?lessonsPage=1`}>
+            Edit Lessons
+          </Button>
         </Stack>
       </Stack>
     </Paper>

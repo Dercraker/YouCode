@@ -25,6 +25,11 @@ export const LINKS = {
     href: '/admin/courses',
     auth: true,
   },
+  Lessons: {
+    label: 'Lessons',
+    href: '/admin/courses/{1}/lessons',
+    auth: true,
+  },
 };
 
 export const HeaderLinks: NavigationLinksType = [LINKS.Home];

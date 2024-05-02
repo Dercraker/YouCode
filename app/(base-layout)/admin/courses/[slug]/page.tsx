@@ -2,7 +2,7 @@ import CourseDetail from '@/features/admin/course/CourseDetail';
 import UserList from '@/features/admin/course/UserList';
 import { requiredAuth } from '@/lib/auth/helper';
 import { searchParamsCache } from '@/lib/nusq/searchParams';
-import { courseQuery } from '@/lib/prisma/admin/course.query';
+import { courseQuery } from '@/lib/prisma/admin/courses/course.query';
 import { PageParams } from '@/types/next';
 import { LINKS } from '@/utils/NavigationLinks';
 import {
