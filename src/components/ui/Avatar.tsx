@@ -12,8 +12,6 @@ interface AvatarProps {
 const AvatarImage = ({ user }: AvatarProps) => {
   const generateAvatar = (seed: string) => {
     const isFlip = Math.random() > 0.5;
-    console.log('🚀 ~ AvatarImage ~ Math.random():', Math.random());
-    console.log('🚀 ~ AvatarImage ~ isFlip:', isFlip);
     const avatar = createAvatar(adventurer, {
       randomizeIds: true,
       seed: seed,

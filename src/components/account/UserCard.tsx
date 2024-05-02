@@ -3,13 +3,12 @@ import LogoutButton from '@/features/auth/LogoutButton';
 import { auth } from '@/lib/auth/helper';
 import { LINKS } from '@/utils/NavigationLinks';
 import { Button, Group, Paper, Stack, Text } from '@mantine/core';
-import { RedirectType, redirect } from 'next/navigation';
 
 const UserCard = async () => {
   const user = await auth();
-  if (!user) {
-    redirect('/auth/signin?callbackUrl=/account', RedirectType.push);
-  }
+  // if (!user) {
+  //   redirect('/auth/signin?callbackUrl=/account', RedirectType.push);
+  // }
   return (
     <Paper radius="lg" shadow="xl" p="xl" withBorder>
       <Stack>
