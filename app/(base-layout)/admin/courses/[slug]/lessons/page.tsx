@@ -70,6 +70,7 @@ const RoutePage = async ({
           lessons={lessons}
           lessonsPage={lessonsPage}
           totalLessons={lessonsCount}
+          courseId={slug}
         />
       </Stack>
     </Container>

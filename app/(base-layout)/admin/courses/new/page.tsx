@@ -9,7 +9,7 @@ const RoutePage = async () => {
     <Container>
       <Stack>
         <Stack gap="xs">
-          <Title>Edit Course</Title>
+          <Title>New Course</Title>
           <Divider />
         </Stack>
         <NewCourseCard />

@@ -58,9 +58,19 @@ export const LINKS = {
       href: '/admin/courses/{1}/lessons',
       auth: true,
     },
+    AdminLesson: {
+      label: 'Lesson',
+      href: '/admin/courses/{1}/lessons/{2}',
+      auth: true,
+    },
     AdminEditLesson: {
-      label: 'Lessons',
+      label: 'Edit Lesson',
       href: '/admin/courses/{1}/lessons/{2}/edit',
+      auth: true,
+    },
+    AdminNewLesson: {
+      label: 'New Lesson',
+      href: '/admin/courses/{1}/lessons/new',
       auth: true,
     },
   },
