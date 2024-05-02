@@ -1,5 +1,6 @@
 import CoursesTable from '@/features/admin/CoursesTable';
 import { requiredAuth } from '@/lib/auth/helper';
+import { LINKS } from '@/utils/NavigationLinks';
 import {
   Box,
   Button,
@@ -19,7 +20,9 @@ const RoutePage = async () => {
         <Box>
           <Group justify="space-between">
             <Title>Courses</Title>
-            <Button>New Course</Button>
+            <Button component="a" href={LINKS.Admin.AdminNewCourse.href}>
+              {LINKS.Admin.AdminNewCourse.label}
+            </Button>
           </Group>
           <Divider />
         </Box>

@@ -1,6 +1,7 @@
 import EditCourseCard from '@/features/admin/courses/EditCourseCard';
 import { editCourseGETQuery } from '@/features/admin/courses/editCourseGET.query';
 import { EditCourseGetQueryType } from '@/lib/Zod/admin/course/editCourseGetQuery.schema';
+import { requiredAuth } from '@/lib/auth/helper';
 import { PageParams } from '@/types/next';
 import { Container, Divider, Stack, Title } from '@mantine/core';
 
@@ -9,6 +10,8 @@ type RoutePageProps = {
 };
 
 const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
+  const user = requiredAuth();
+
   const course: EditCourseGetQueryType = await editCourseGETQuery({ slug });
 
   return (

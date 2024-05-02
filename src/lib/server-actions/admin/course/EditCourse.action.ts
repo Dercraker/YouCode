@@ -7,7 +7,6 @@ import { authAction } from '@/lib/server-actions/safe-actions';
 export const EditCourseAction = authAction(
   EditCourseSchema,
   async ({ id, image, name, presentation, state }, ctx) => {
-    console.log('🚀 ~ state:', state);
     const course = await prisma.course.update({
       where: {
         id,
