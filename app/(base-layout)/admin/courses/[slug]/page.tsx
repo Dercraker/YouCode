@@ -12,8 +12,8 @@ import {
   Divider,
   Group,
   Stack,
-  Title,
 } from '@mantine/core';
+import { IconSlash } from '@tabler/icons-react';
 import Link from 'next/link';
 
 type RoutePageProps = {
@@ -52,8 +52,9 @@ const RoutePage = async ({
       <Stack>
         <Box>
           <Group justify="space-between">
-            <Breadcrumbs>{items}</Breadcrumbs>
-            <Title>{`Course : ${course?.name}`}</Title>
+            <Breadcrumbs separator={<IconSlash />} separatorMargin={0}>
+              {items}
+            </Breadcrumbs>
           </Group>
           <Divider />
         </Box>

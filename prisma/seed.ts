@@ -50,6 +50,24 @@ const main = async () => {
   for (const course of courses) {
     const random3Users = faker.helpers.arrayElements(users, 3);
 
+    if (course.id === 'clvob28ef00018i2xui49i65e')
+      for (const user of users) {
+        const courseOnUser = await prisma.courseOnUser.findFirst({
+          where: {
+            userId: user.id,
+            courseId: course.id,
+          },
+        });
+
+        if (!courseOnUser)
+          await prisma.courseOnUser.create({
+            data: {
+              userId: user.id,
+              courseId: course.id,
+            },
+          });
+      }
+
     for (const user of random3Users) {
       await prisma.courseOnUser.create({
         data: {
