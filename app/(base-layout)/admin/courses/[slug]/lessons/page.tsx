@@ -1,4 +1,4 @@
-import LessonsList from '@/features/admin/course/lessons/LessonsList';
+import AdminLessonsList from '@/features/admin/course/lessons/AdminLessonsList';
 import { LessonsType } from '@/lib/Zod/admin/course/lessons/Lessons.schema';
 import { requiredAuth } from '@/lib/auth/helper';
 import { searchParamsCache } from '@/lib/nusq/searchParams';
@@ -60,7 +60,7 @@ const RoutePage = async ({
             {items}
           </Breadcrumbs>
         </Box>
-        <LessonsList
+        <AdminLessonsList
           lessons={lessons}
           lessonsPage={lessonsPage}
           totalLessons={lessonsCount}

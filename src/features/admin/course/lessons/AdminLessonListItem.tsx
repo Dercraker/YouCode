@@ -5,7 +5,7 @@ interface LessonListItemProps {
   lesson: LessonType;
 }
 
-const LessonListItem = ({ lesson }: LessonListItemProps) => {
+const AdminLessonListItem = ({ lesson }: LessonListItemProps) => {
   return (
     <Paper radius="md" px="xl" py="md" withBorder>
       <Group justify="space-between" align="end">
@@ -21,4 +21,4 @@ const LessonListItem = ({ lesson }: LessonListItemProps) => {
   );
 };
 
-export default LessonListItem;
+export default AdminLessonListItem;

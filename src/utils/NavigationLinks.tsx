@@ -26,12 +26,16 @@ export const LINKS = {
   },
   Course: {
     label: 'Course',
-    href: '/course/{1}',
+    href: '/courses/{1}',
   },
   AdminLessons: {
     label: 'Lessons',
     href: '/admin/courses/{1}/lessons',
     auth: true,
+  },
+  Lesson: {
+    label: 'Lesson',
+    href: '/courses/{1}/lessons/{2}',
   },
   Explorer: {
     label: 'Explorer',

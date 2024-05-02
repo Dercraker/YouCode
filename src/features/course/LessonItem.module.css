@@ -1,0 +1,8 @@
+.link {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: var(--mantine-color-dark-5);
+  }
+}

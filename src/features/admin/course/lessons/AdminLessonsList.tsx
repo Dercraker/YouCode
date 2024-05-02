@@ -2,14 +2,14 @@ import PaginationComponent from '@/components/Pagination/Pagination';
 import { LessonsType } from '@/lib/Zod/admin/course/lessons/Lessons.schema';
 import { LINKS } from '@/utils/NavigationLinks';
 import { Button, Group, Paper, Stack, Title } from '@mantine/core';
-import LessonListItem from './LessonListItem';
+import AdminLessonListItem from './AdminLessonListItem';
 
 interface LessonsListProps {
   lessons: LessonsType;
   lessonsPage: number;
   totalLessons: number;
 }
-const LessonsList = ({
+const AdminLessonsList = ({
   lessons,
   lessonsPage,
   totalLessons,
@@ -23,7 +23,7 @@ const LessonsList = ({
         </Group>
         <Stack>
           {lessons.map((lesson: any) => (
-            <LessonListItem key={lesson.id} lesson={lesson} />
+            <AdminLessonListItem key={lesson.id} lesson={lesson} />
           ))}
         </Stack>
         <Group align="center" justify="center">
@@ -41,4 +41,4 @@ const LessonsList = ({
   );
 };
 
-export default LessonsList;
+export default AdminLessonsList;

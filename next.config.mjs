@@ -1,3 +1,4 @@
+import createMDX from '@next/mdx';
 import createJiti from 'jiti';
 import { fileURLToPath } from 'node:url';
 const jiti = createJiti(fileURLToPath(import.meta.url));
@@ -7,6 +8,7 @@ jiti('./src/lib/env/client.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['tsx', 'ts', 'mdx', 'md'],
   images: {
     remotePatterns: [
       {
@@ -31,4 +33,6 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);

@@ -11,11 +11,11 @@ import {
 } from '@mantine/core';
 import Image from 'next/image';
 
-interface CourseDetailProps {
+interface AdminCourseDetailProps {
   course: any;
 }
 
-const CourseDetail = ({ course }: CourseDetailProps) => {
+const AdminCourseDetail = ({ course }: AdminCourseDetailProps) => {
   return (
     <Paper radius="lg" p="xl" withBorder my="md" style={{ flexGrow: 1 }}>
       <Stack>
@@ -53,4 +53,4 @@ const CourseDetail = ({ course }: CourseDetailProps) => {
   );
 };
 
-export default CourseDetail;
+export default AdminCourseDetail;

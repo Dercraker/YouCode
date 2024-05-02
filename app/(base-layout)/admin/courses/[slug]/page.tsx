@@ -1,4 +1,4 @@
-import CourseDetail from '@/features/admin/course/CourseDetail';
+import AdminCourseDetail from '@/features/admin/course/AdminCourseDetail';
 import UserList from '@/features/admin/course/UserList';
 import { requiredAuth } from '@/lib/auth/helper';
 import { searchParamsCache } from '@/lib/nusq/searchParams';
@@ -64,7 +64,7 @@ const RoutePage = async ({
             users={course?.users ?? []}
             userCount={course._count?.users ?? 0}
           />
-          <CourseDetail course={course} />
+          <AdminCourseDetail course={course} />
         </Group>
       </Stack>
     </Container>
