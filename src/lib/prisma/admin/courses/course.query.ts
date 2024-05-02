@@ -16,6 +16,7 @@ export const courseQuery = async ({
       id: true,
       name: true,
       image: true,
+      state: true,
       users: {
         take: take,
         skip: (skip - 1) * take,

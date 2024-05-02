@@ -28,7 +28,7 @@ const UserCard = async () => {
             variant="outline"
             fullWidth
             component="a"
-            href={LINKS.Admin.href}>
+            href={LINKS.Admin.Admin.href}>
             Admin
           </Button>
         </Stack>

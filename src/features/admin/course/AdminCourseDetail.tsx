@@ -1,6 +1,8 @@
+import { CourseSateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
 import { LINKS } from '@/utils/NavigationLinks';
 import {
   AspectRatio,
+  Badge,
   Box,
   Button,
   Divider,
@@ -33,15 +35,29 @@ const AdminCourseDetail = ({ course }: AdminCourseDetailProps) => {
           <Divider my="xs" />
         </Box>
         <Stack gap="0">
+          <Badge
+            color={
+              course.state === CourseSateSchema.enum.DRAFT ? 'red' : 'teal'
+            }>
+            {course.state}
+          </Badge>
           <Text>{course._count.users} Users</Text>
           <Text>{course._count.lessons} Lessons</Text>
         </Stack>
         <Stack>
-          <Button variant="outline">Edit</Button>
           <Button
             variant="outline"
             component="a"
-            href={`${LINKS.AdminLessons.href.replace(
+            href={`${LINKS.Admin.AdminEditCourse.href.replace(
+              '{1}',
+              course.id,
+            )}`}>
+            Edit
+          </Button>
+          <Button
+            variant="outline"
+            component="a"
+            href={`${LINKS.Admin.AdminLessons.href.replace(
               '{1}',
               course.id,
             )}?lessonsPage=1`}>

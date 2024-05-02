@@ -28,24 +28,33 @@ export const LINKS = {
     },
   },
   Admin: {
-    label: 'Admin',
-    href: '/admin',
-    auth: true,
+    Admin: {
+      label: 'Admin',
+      href: '/admin',
+      auth: true,
+    },
+    AdminCourses: {
+      label: 'Courses',
+      href: '/admin/courses',
+      auth: true,
+    },
+    AdminLessons: {
+      label: 'Lessons',
+      href: '/admin/courses/{1}/lessons',
+      auth: true,
+    },
+    AdminEditCourse: {
+      label: 'Edit Course',
+      href: '/admin/courses/{1}/edit',
+      auth: true,
+    },
   },
-  AdminCourses: {
-    label: 'Courses',
-    href: '/admin/courses',
-    auth: true,
-  },
+
   Course: {
     label: 'Course',
     href: '/courses/{1}',
   },
-  AdminLessons: {
-    label: 'Lessons',
-    href: '/admin/courses/{1}/lessons',
-    auth: true,
-  },
+
   Lesson: {
     label: 'Lesson',
     href: '/courses/{1}/lessons/{2}',

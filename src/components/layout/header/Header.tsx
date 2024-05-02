@@ -1,4 +1,3 @@
-import SwitchThemeIcon from '@/components/layout/SwitchTheme/SwitchThemIcon';
 import { LogoSvg } from '@/components/svg/LogoSvg';
 import AuthButtonClient from '@/features/auth/AuthButtonClient';
 import { HeaderLinks } from '@/utils/NavigationLinks';
@@ -76,7 +75,7 @@ const Header = ({ opened, toggle }: LandingHeaderProps) => {
           <Group visibleFrom="sm">
             <Group gap="0">{links}</Group>
             <AuthButtonClient />
-            <SwitchThemeIcon />
+            {/* <SwitchThemeIcon /> */}
           </Group>
         </Group>
       </AppShell.Header>

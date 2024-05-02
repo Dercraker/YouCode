@@ -56,7 +56,7 @@ const UserDropDown = ({ user }: UserDropDownProps) => {
               />
             }
             component="a"
-            href={LINKS.AdminCourses.href}>
+            href={LINKS.Admin.AdminCourses.href}>
             Courses List
           </Menu.Item>
 

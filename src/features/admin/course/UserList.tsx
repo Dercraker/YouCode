@@ -22,7 +22,7 @@ const UserList = ({ slug, users, userCount }: UserListProps) => {
         <UserTable users={users} />
         <Group justify="center">
           <PaginationComponent
-            baseUri={`${LINKS.AdminCourses.href}/${slug}`}
+            baseUri={`${LINKS.Admin.AdminCourses.href}/${slug}`}
             queryKey="userPage"
             total={Math.ceil(userCount / 5)}
           />
