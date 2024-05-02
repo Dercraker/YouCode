@@ -3,7 +3,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import type { User } from '@prisma/client';
 import type { Session } from 'next-auth';
 import NextAuth from 'next-auth';
-import { prisma } from '../prisma';
+import { prisma } from '../prisma/prisma';
 import { setupResendCustomer } from './auth-config-setup';
 import {
   credentialsOverrideJwt,

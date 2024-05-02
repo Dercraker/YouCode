@@ -1,12 +1,10 @@
-import { Button, Stack } from '@mantine/core';
+import { Button } from '@mantine/core';
 
 const RoutePage = () => {
   return (
-    <Stack>
-      <Button component="a" href="/admin/courses">
-        Liste des cours
-      </Button>
-    </Stack>
+    <Button component="a" href="/admin/courses">
+      Liste des cours
+    </Button>
   );
 };
 

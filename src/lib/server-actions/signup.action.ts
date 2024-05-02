@@ -5,7 +5,7 @@ import {
   hashStringWithSalt,
   validatePassword,
 } from '@/lib/auth/credentialsProvider';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/prisma/prisma';
 import { ActionError, action } from '@/lib/server-actions/safe-actions';
 import {
   SignUpCredentialSchema,

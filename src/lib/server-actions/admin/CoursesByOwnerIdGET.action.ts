@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/prisma/prisma';
 import { authAction } from '@/lib/server-actions/safe-actions';
 import { z } from 'zod';
 

@@ -1,10 +1,10 @@
 import { env } from '@/lib/env/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/prisma/prisma';
 import crypto from 'crypto';
 import { nanoid } from 'nanoid';
+import type { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { cookies } from 'next/headers';
-import type { NextAuthConfig } from 'next-auth';
 import type { NextRequest } from 'next/server';
 
 const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;

@@ -38,6 +38,7 @@
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.28.11",
     "@types/node": "^20.12.7",
+    "@faker-js/faker": "^8.2.0",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",
     "eslint": "^8.57.0",
@@ -48,5 +49,8 @@
     "prisma": "^5.13.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "prisma": {
+    "seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }
