@@ -1,0 +1,8 @@
+.paper {
+  text-decoration: inherit;
+  color: inherit;
+
+  &:hover {
+    background-color: var(--mantine-color-dark-5);
+  }
+}

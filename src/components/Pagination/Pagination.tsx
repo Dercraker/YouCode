@@ -18,9 +18,11 @@ const PaginationComponent = ({
   const router = useRouter();
 
   const [page] = useQueryState(queryKey, parseAsInteger.withDefault(1));
+  console.log('🚀 ~ page:', page);
 
-  const handleChange = (value: number) =>
+  const handleChange = (value: number) => {
     router.push(`${baseUri}?${queryKey}=${value}`);
+  };
 
   return (
     <Pagination

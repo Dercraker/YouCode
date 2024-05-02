@@ -23,7 +23,7 @@ const CoursesTable = ({ user }: CoursesTableProps) => {
   const router = useRouter();
 
   const handleClickCours = (id: string) => {
-    router.push(`${LINKS.Courses.href}/${id}?userPage=1`);
+    router.push(`${LINKS.AdminCourses.href}/${id}?userPage=1`);
   };
 
   const rows = courses?.data?.map(cours => (

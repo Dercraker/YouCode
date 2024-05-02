@@ -37,14 +37,14 @@ const RoutePage = async ({
   });
 
   const items = [
-    { title: LINKS.Courses.label, href: LINKS.Courses.href },
+    { title: LINKS.AdminCourses.label, href: LINKS.AdminCourses.href },
     {
       title: lessons[0].course.name,
-      href: `${LINKS.Courses.href}/${slug}?userPage=1`,
+      href: `${LINKS.AdminCourses.href}/${slug}?userPage=1`,
     },
     {
       title: 'Lessons',
-      href: `${LINKS.Lessons.href.replace('{1}', slug)}?lessonsPage=1`,
+      href: `${LINKS.AdminLessons.href.replace('{1}', slug)}?lessonsPage=1`,
     },
   ].map((item, index) => (
     <Link href={item.href} key={index}>

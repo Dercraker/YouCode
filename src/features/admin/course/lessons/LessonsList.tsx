@@ -28,7 +28,7 @@ const LessonsList = ({
         </Stack>
         <Group align="center" justify="center">
           <PaginationComponent
-            baseUri={`${LINKS.Lessons.href.replace(
+            baseUri={`${LINKS.AdminLessons.href.replace(
               '{1}',
               lessons[0].course.id,
             )}`}

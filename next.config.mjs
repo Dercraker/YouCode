@@ -13,6 +13,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ziicvw3b3izy7dzx.public.blob.vercel-storage.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '/seed/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'loremflickr.com',
+      },
     ],
   },
   logging: {

@@ -41,7 +41,7 @@ const CourseDetail = ({ course }: CourseDetailProps) => {
           <Button
             variant="outline"
             component="a"
-            href={`${LINKS.Lessons.href.replace(
+            href={`${LINKS.AdminLessons.href.replace(
               '{1}',
               course.id,
             )}?lessonsPage=1`}>

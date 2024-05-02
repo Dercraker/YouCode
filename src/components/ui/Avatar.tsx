@@ -1,3 +1,7 @@
+'use client';
+
+import { adventurer } from '@dicebear/collection';
+import { createAvatar } from '@dicebear/core';
 import { Avatar } from '@mantine/core';
 import { User } from 'next-auth';
 
@@ -6,19 +10,35 @@ interface AvatarProps {
 }
 
 const AvatarImage = ({ user }: AvatarProps) => {
-  return user.image ? (
-    <Avatar src={user.image} alt={user.name ?? 'User Avatar'} />
-  ) : user.email ? (
-    <Avatar color="cyan" radioGroup="xl">
-      {user.email.slice(0, 2).toUpperCase()}
-    </Avatar>
-  ) : user.name ? (
-    <Avatar color="cyan" radioGroup="xl">
-      {user.name.slice(0, 2).toUpperCase()}
-    </Avatar>
-  ) : (
-    <Avatar color="cyan" radioGroup="xl" />
-  );
+  const generateAvatar = (seed: string) => {
+    const isFlip = Math.random() > 0.5;
+    console.log('🚀 ~ AvatarImage ~ Math.random():', Math.random());
+    console.log('🚀 ~ AvatarImage ~ isFlip:', isFlip);
+    const avatar = createAvatar(adventurer, {
+      randomizeIds: true,
+      seed: seed,
+      flip: isFlip,
+      hairProbability: 95,
+      glassesProbability: 30,
+      featuresProbability: 20,
+      earringsProbability: 70,
+    }).toDataUriSync();
+
+    return avatar;
+  };
+
+  if (user.image)
+    return (
+      <Avatar src={user.image} alt={user.name ?? 'User Avatar'} size={38} />
+    );
+
+  let avatar = '';
+
+  if (user.name) avatar = generateAvatar(user.name);
+
+  if (user.email) avatar = generateAvatar(user.email);
+
+  return <Avatar src={avatar} radioGroup="xl" size={38} />;
 };
 
 export default AvatarImage;

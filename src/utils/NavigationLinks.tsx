@@ -1,6 +1,6 @@
 import { NavigationLinksType } from '@/lib/Zod/NavigationLinks.schema';
 import { NavigationLinksWithGroupType } from '@/lib/Zod/NavigationLinksWithGroup.schema';
-import { IconHome } from '@tabler/icons-react';
+import { IconBooks, IconHome } from '@tabler/icons-react';
 
 export const LINKS = {
   Home: {
@@ -20,25 +20,36 @@ export const LINKS = {
     href: '/admin',
     auth: true,
   },
-  Courses: {
+  AdminCourses: {
     label: 'Courses',
     href: '/admin/courses',
     auth: true,
   },
-  Lessons: {
+  Course: {
+    label: 'Course',
+    href: '/course/{1}',
+    auth: true,
+  },
+  AdminLessons: {
     label: 'Lessons',
     href: '/admin/courses/{1}/lessons',
     auth: true,
   },
+  Explorer: {
+    label: 'Explorer',
+    icon: <IconBooks />,
+    href: '/explorer',
+    auth: false,
+  },
 };
 
-export const HeaderLinks: NavigationLinksType = [LINKS.Home];
+export const HeaderLinks: NavigationLinksType = [LINKS.Home, LINKS.Explorer];
 
 export const FooterLinks: NavigationLinksWithGroupType = [
   {
     title: 'About',
     links: [
-      { label: 'Features', href: '#' },
+      LINKS.Explorer,
       { label: 'Pricing', href: '#' },
       { label: 'Support', href: '#' },
       { label: 'Forums', href: '#' },
