@@ -72,9 +72,7 @@ const EditCourseCard = ({ course }: EditCourseCardProps) => {
         />
         <CouseStateSelector
           selectedValue={(value: string) => {
-            console.log('🚀 ~ EditCourseCard ~ value:', value);
             courseForm.setFieldValue('state', CourseSateSchema.parse(value));
-            console.log('🚀 ~ EditCourseCard ~ courseForm:', courseForm.values);
           }}
           label="State"
           defaultValue={course.state}

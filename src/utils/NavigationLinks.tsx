@@ -43,11 +43,6 @@ export const LINKS = {
       href: '/admin/courses/{1}',
       auth: true,
     },
-    AdminLessons: {
-      label: 'Lessons',
-      href: '/admin/courses/{1}/lessons',
-      auth: true,
-    },
     AdminEditCourse: {
       label: 'Edit Course',
       href: '/admin/courses/{1}/edit',
@@ -56,6 +51,16 @@ export const LINKS = {
     AdminNewCourse: {
       label: 'New Course',
       href: '/admin/courses/new',
+      auth: true,
+    },
+    AdminLessons: {
+      label: 'Lessons',
+      href: '/admin/courses/{1}/lessons',
+      auth: true,
+    },
+    AdminEditLesson: {
+      label: 'Lessons',
+      href: '/admin/courses/{1}/lessons/{2}/edit',
       auth: true,
     },
   },
