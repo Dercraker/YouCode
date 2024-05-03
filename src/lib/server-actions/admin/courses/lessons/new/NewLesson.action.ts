@@ -13,7 +13,7 @@ export const NewLessonAction = authAction(
         courseId,
         state,
         content: '## Default content',
-        rank: 'aaaa',
+        rank: 'zzzzzzzzz',
       },
     });
 

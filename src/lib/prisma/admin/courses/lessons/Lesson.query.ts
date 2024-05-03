@@ -1,12 +1,7 @@
 import { CourseQuerySchemaType } from '@/lib/Zod/admin/course/CouseQuery.schema';
 import { prisma } from '@/lib/prisma/prisma';
 
-export const LessonQuery = async ({
-  id,
-  ownerId,
-  take,
-  skip,
-}: CourseQuerySchemaType) => {
+export const LessonQuery = async ({ id, ownerId }: CourseQuerySchemaType) => {
   const lessons = await prisma.lesson.findMany({
     where: {
       courseId: id,
@@ -14,8 +9,6 @@ export const LessonQuery = async ({
         creatorId: ownerId,
       },
     },
-    take: take,
-    skip: (skip - 1) * take,
     select: {
       id: true,
       name: true,
@@ -30,8 +23,10 @@ export const LessonQuery = async ({
         },
       },
     },
+    orderBy: {
+      rank: 'asc',
+    },
   });
-  console.log('🚀 ~ lessons:', lessons);
 
   return lessons;
 };

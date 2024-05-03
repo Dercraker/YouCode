@@ -1,9 +1,7 @@
 import AdminLessonsList from '@/features/admin/course/lessons/AdminLessonsList';
 import { LessonsType } from '@/lib/Zod/admin/course/lessons/Lessons.schema';
 import { requiredAuth } from '@/lib/auth/helper';
-import { searchParamsCache } from '@/lib/nusq/searchParams';
 import { LessonQuery } from '@/lib/prisma/admin/courses/lessons/Lesson.query';
-import { prisma } from '@/lib/prisma/prisma';
 import { PageParams } from '@/types/next';
 import { LINKS } from '@/utils/NavigationLinks';
 import { Box, Breadcrumbs, Container, Stack } from '@mantine/core';
@@ -14,26 +12,12 @@ type RoutePageProps = {
   slug: string;
 };
 
-const RoutePage = async ({
-  params: { slug },
-  searchParams,
-}: PageParams<RoutePageProps>) => {
+const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
   const user = await requiredAuth();
-  const { lessonsPage } = searchParamsCache.parse(searchParams);
 
   const lessons: LessonsType = await LessonQuery({
     id: slug,
     ownerId: user.id,
-    take: 5,
-    skip: lessonsPage,
-  });
-  const lessonsCount: number = await prisma.lesson.count({
-    where: {
-      courseId: slug,
-      course: {
-        creatorId: user.id,
-      },
-    },
   });
 
   const items = [
@@ -66,12 +50,7 @@ const RoutePage = async ({
             {items}
           </Breadcrumbs>
         </Box>
-        <AdminLessonsList
-          lessons={lessons}
-          lessonsPage={lessonsPage}
-          totalLessons={lessonsCount}
-          courseId={slug}
-        />
+        <AdminLessonsList lessons={lessons} courseId={slug} />
       </Stack>
     </Container>
   );
