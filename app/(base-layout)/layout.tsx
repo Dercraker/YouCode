@@ -2,11 +2,14 @@
 
 import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/header/Header';
-import { LayoutParams } from '@/types/next';
 import { AppShell, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { PropsWithChildren, ReactNode } from 'react';
 
-const RouteLayout = ({ children }: LayoutParams<{}>) => {
+const RouteLayout = ({
+  children,
+  modal,
+}: PropsWithChildren<{ modal?: ReactNode }>) => {
   const [opened, { toggle }] = useDisclosure();
   const theme = useMantineTheme();
 
@@ -28,6 +31,7 @@ const RouteLayout = ({ children }: LayoutParams<{}>) => {
           marginBottom: '400px',
         }}>
         {children}
+        {modal}
       </AppShell.Main>
       <Footer />
     </AppShell>

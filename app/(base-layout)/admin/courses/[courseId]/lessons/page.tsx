@@ -9,14 +9,16 @@ import { IconSlash } from '@tabler/icons-react';
 import Link from 'next/link';
 
 type RoutePageProps = {
-  slug: string;
+  courseId: string;
 };
 
-const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
+const RoutePage = async ({
+  params: { courseId },
+}: PageParams<RoutePageProps>) => {
   const user = await requiredAuth();
 
   const lessons: LessonsType = await LessonQuery({
-    id: slug,
+    id: courseId,
     ownerId: user.id,
   });
 
@@ -27,13 +29,13 @@ const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
     },
     {
       title: lessons[0].course.name,
-      href: `${LINKS.Admin.AdminCourses.href}/${slug}?userPage=1`,
+      href: `${LINKS.Admin.AdminCourses.href}/${courseId}?userPage=1`,
     },
     {
       title: 'Lessons',
       href: `${LINKS.Admin.AdminLessons.href.replace(
         '{1}',
-        slug,
+        courseId,
       )}?lessonsPage=1`,
     },
   ].map((item, index) => (
@@ -50,7 +52,7 @@ const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
             {items}
           </Breadcrumbs>
         </Box>
-        <AdminLessonsList lessons={lessons} courseId={slug} />
+        <AdminLessonsList lessons={lessons} courseId={courseId} />
       </Stack>
     </Container>
   );

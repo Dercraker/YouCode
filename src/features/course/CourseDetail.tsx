@@ -1,30 +1,16 @@
 import AvatarImage from '@/components/ui/Avatar';
-import { CourseBySlugType } from '@/lib/Zod/course/CourseBySlug.schema';
+import { CourseByIdType } from '@/lib/Zod/course/CourseById.schema';
 import { AspectRatio, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import Image from 'next/image';
 import MarkdownProse from '../mdx/MarkdownProse';
 
 interface CourseDetailProps {
-  course: CourseBySlugType;
+  course: CourseByIdType;
 }
 
 const CourseDetail = ({ course }: CourseDetailProps) => {
-  const markdown = `A paragraph with *emphasis* and **strong importance**.
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-* Lists
-* [ ] todo
-* [x] done
-
-A table:
-
-| a | b |
-| - | - |
-`;
-
   return (
-    <Paper radius="lg" shadow="xl" p="xl" withBorder flex={2}>
+    <Paper radius="lg" shadow="xl" p="xl" withBorder flex={4}>
       <Stack>
         <Group
           style={{

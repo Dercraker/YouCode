@@ -1,11 +1,11 @@
-import { CourseBySlugQueryType } from '@/lib/Zod/course/CourseBySlugQuery.schema';
+import { CourseByIdQueryType } from '@/lib/Zod/course/CourseByIdQuery.schema';
 import { LessonProgressSchema } from '@/lib/Zod/lesson/LessonsProgress.schema';
 import { prisma } from '@/lib/prisma/prisma';
 
-export const CouseBySlugQuery = async ({
+export const CouseByIdQuery = async ({
   courseId,
   userId = '-',
-}: CourseBySlugQueryType) => {
+}: CourseByIdQueryType) => {
   const course = await prisma.course.findUnique({
     where: {
       id: courseId,

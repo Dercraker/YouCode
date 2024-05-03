@@ -7,15 +7,17 @@ import { PageParams } from '@/types/next';
 import { Container, Divider, Flex, Stack, Title } from '@mantine/core';
 
 type RoutePageProps = {
-  id: string;
+  lessonId: string;
 };
 
 const RoutePage = async ({
-  params: { id: slug },
+  params: { lessonId },
 }: PageParams<RoutePageProps>) => {
   const user = await requiredAuth();
 
-  const lesson: EditLessonType = await EditLessonGetQuery({ slug });
+  const lesson: EditLessonType = await EditLessonGetQuery({
+    lessonId,
+  });
 
   return (
     <Container size="xl">

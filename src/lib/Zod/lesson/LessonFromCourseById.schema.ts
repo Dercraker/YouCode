@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { LessonStateSchema } from './LessonState.schema';
 import { LessonProgressSchema } from './LessonsProgress.schema';
 
-export const LessonFromCourseBySlugSchema = z.object({
+export const LessonFromCourseByIdSchema = z.object({
   name: z.string(),
   id: z.string(),
   courseId: z.string(),
@@ -15,6 +15,6 @@ export const LessonFromCourseBySlugSchema = z.object({
   ),
 });
 
-export type LessonFromCourseBySlugType = z.infer<
-  typeof LessonFromCourseBySlugSchema
+export type LessonFromCourseByIdType = z.infer<
+  typeof LessonFromCourseByIdSchema
 >;

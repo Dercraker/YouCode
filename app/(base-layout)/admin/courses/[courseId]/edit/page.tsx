@@ -6,13 +6,17 @@ import { PageParams } from '@/types/next';
 import { Container, Divider, Stack, Title } from '@mantine/core';
 
 type RoutePageProps = {
-  slug: string;
+  courseId: string;
 };
 
-const RoutePage = async ({ params: { slug } }: PageParams<RoutePageProps>) => {
+const RoutePage = async ({
+  params: { courseId },
+}: PageParams<RoutePageProps>) => {
   const user = requiredAuth();
 
-  const course: EditCourseGetQueryType = await editCourseGETQuery({ slug });
+  const course: EditCourseGetQueryType = await editCourseGETQuery({
+    courseId,
+  });
 
   return (
     <Container>

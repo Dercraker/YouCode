@@ -1,6 +1,6 @@
 'use client';
 
-import { LessonFromCourseBySlugType } from '@/lib/Zod/lesson/LessonFromCourseBySlug.schema';
+import { LessonFromCourseByIdType } from '@/lib/Zod/lesson/LessonFromCourseById.schema';
 import { LessonProgressSchema } from '@/lib/Zod/lesson/LessonsProgress.schema';
 import { LINKS } from '@/utils/NavigationLinks';
 import { List, ThemeIcon, rem } from '@mantine/core';
@@ -10,7 +10,7 @@ import { useMemo } from 'react';
 import styles from './LessonItem.module.css';
 
 interface LessonItemProps {
-  lesson: LessonFromCourseBySlugType;
+  lesson: LessonFromCourseByIdType;
   courseId: string;
 }
 

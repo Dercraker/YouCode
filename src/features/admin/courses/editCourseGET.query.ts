@@ -1,13 +1,13 @@
 import { prisma } from '@/lib/prisma/prisma';
 
 interface EditCourseGETQuery {
-  slug: string;
+  courseId: string;
 }
 
-export const editCourseGETQuery = async ({ slug }: EditCourseGETQuery) => {
+export const editCourseGETQuery = async ({ courseId }: EditCourseGETQuery) => {
   const course = await prisma.course.findUnique({
     where: {
-      id: slug,
+      id: courseId,
     },
     select: {
       id: true,
@@ -18,7 +18,7 @@ export const editCourseGETQuery = async ({ slug }: EditCourseGETQuery) => {
     },
   });
 
-  if (!course) throw new Error(`Course with id ${slug} not found`);
+  if (!course) throw new Error(`Course with id ${courseId} not found`);
 
   return course;
 };

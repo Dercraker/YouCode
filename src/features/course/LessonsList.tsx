@@ -1,13 +1,13 @@
 'use client';
 
 import NoLessons from '@/components/lessons/NoLessons';
-import { LessonFromCourseBySlugType } from '@/lib/Zod/lesson/LessonFromCourseBySlug.schema';
+import { LessonFromCourseByIdType } from '@/lib/Zod/lesson/LessonFromCourseById.schema';
 import { List, Paper, Stack, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconCircleCheck } from '@tabler/icons-react';
 import LessonItem from './LessonItem';
 
 interface LessonsListProps {
-  lessons: LessonFromCourseBySlugType[];
+  lessons: LessonFromCourseByIdType[];
   courseId: string;
 }
 
@@ -23,6 +23,7 @@ const LessonsList = ({ lessons, courseId }: LessonsListProps) => {
       withBorder
       flex={1}
       mah="80vh"
+      miw="10em"
       style={{ overflowY: 'scroll' }}>
       <Stack>
         <Title order={3}>Lessons</Title>

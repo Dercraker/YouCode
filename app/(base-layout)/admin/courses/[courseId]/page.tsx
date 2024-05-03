@@ -17,11 +17,11 @@ import { IconSlash } from '@tabler/icons-react';
 import Link from 'next/link';
 
 type RoutePageProps = {
-  slug: string;
+  courseId: string;
 };
 
 const RoutePage = async ({
-  params: { slug },
+  params: { courseId },
   searchParams,
 }: PageParams<RoutePageProps>) => {
   const user = await requiredAuth();
@@ -29,7 +29,7 @@ const RoutePage = async ({
   const { userPage } = searchParamsCache.parse(searchParams);
 
   const course = await courseQuery({
-    id: slug,
+    id: courseId,
     ownerId: user.id,
     take: 5,
     skip: userPage,
@@ -63,7 +63,7 @@ const RoutePage = async ({
         </Box>
         <Group align="top">
           <UserList
-            slug={slug}
+            courseId={courseId}
             users={course?.users ?? []}
             userCount={course._count?.users ?? 0}
           />

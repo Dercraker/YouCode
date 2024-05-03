@@ -3,10 +3,10 @@ import { PageParams } from '@/types/next';
 import { Container, Divider, Stack, Title } from '@mantine/core';
 
 type RoutePageProps = {
-  slug: string;
+  courseId: string;
 };
 
-const RoutePage = ({ params: { slug } }: PageParams<RoutePageProps>) => {
+const RoutePage = ({ params: { courseId } }: PageParams<RoutePageProps>) => {
   return (
     <Container>
       <Stack>
@@ -14,7 +14,7 @@ const RoutePage = ({ params: { slug } }: PageParams<RoutePageProps>) => {
           <Title>New Lesson</Title>
           <Divider />
         </Stack>
-        <NewLessonCard courseId={slug} />
+        <NewLessonCard courseId={courseId} />
       </Stack>
     </Container>
   );

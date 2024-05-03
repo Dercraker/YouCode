@@ -1,13 +1,13 @@
 import { prisma } from '@/lib/prisma/prisma';
 
 interface EditLessonGETQuery {
-  slug: string;
+  lessonId: string;
 }
 
-export const EditLessonGetQuery = async ({ slug }: EditLessonGETQuery) => {
+export const EditLessonGetQuery = async ({ lessonId }: EditLessonGETQuery) => {
   const lesson = await prisma.lesson.findUnique({
     where: {
-      id: slug,
+      id: lessonId,
     },
     select: {
       id: true,
@@ -17,7 +17,7 @@ export const EditLessonGetQuery = async ({ slug }: EditLessonGETQuery) => {
     },
   });
 
-  if (!lesson) throw new Error(`lesson with id ${slug} not found`);
+  if (!lesson) throw new Error(`lesson with id ${lessonId} not found`);
 
   return lesson;
 };
