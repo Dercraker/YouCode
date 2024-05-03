@@ -19,7 +19,7 @@ const UserList = ({ slug, users, userCount }: UserListProps) => {
     <Paper radius="lg" p="xl" withBorder my="md" style={{ flexGrow: 2 }}>
       <Stack>
         <Text fw="700">Users</Text>
-        <UserTable users={users} />
+        <UserTable users={users} courseId={slug} />
         <Group justify="center">
           <PaginationComponent
             baseUri={`${LINKS.Admin.AdminCourses.href}/${slug}`}

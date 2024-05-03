@@ -1,7 +1,8 @@
 'use client';
 
 import AvatarImage from '@/components/ui/Avatar';
-import { Table } from '@mantine/core';
+import { Badge, Table, useMantineTheme } from '@mantine/core';
+import SwitchCancelUserOnCourse from './SwitchCancelUserOnCourse';
 
 interface UserTableProps {
   users: {
@@ -10,17 +11,38 @@ interface UserTableProps {
     image: string | null;
     email: string;
   }[];
+  courseId: string;
 }
 
-const UserTable = ({ users }: UserTableProps) => {
+const UserTable = ({ users, courseId }: UserTableProps) => {
+  const theme = useMantineTheme();
+
+  const getBadge = (canceled: boolean) => {
+    return (
+      <Badge
+        variant={canceled ? 'outline' : 'filled'}
+        color={canceled ? theme.colors.red[7] : theme.colors.green[8]}
+        size="lg"
+        radius="md">
+        {canceled ? 'Canceled' : 'Active'}
+      </Badge>
+    );
+  };
+
   const rows = users?.map(user => (
     <Table.Tr key={user.id}>
       <Table.Td>
         <AvatarImage user={user} />
       </Table.Td>
       <Table.Td>{user.email}</Table.Td>
-      <Table.Td></Table.Td>
-      <Table.Td></Table.Td>
+      <Table.Td>{getBadge(user.canceled)}</Table.Td>
+      <Table.Td>
+        <SwitchCancelUserOnCourse
+          canceled={user.canceled}
+          courseId={courseId}
+          userId={user.id}
+        />
+      </Table.Td>
     </Table.Tr>
   ));
 
