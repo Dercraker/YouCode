@@ -48,7 +48,7 @@ const EditLessonCard = ({ lesson }: EditLessonCardProps) => {
   const handleSubmit = async () => await mutateAsync([lessonForm.values]);
 
   return (
-    <Paper shadow="xl" p="xl" withBorder>
+    <Paper shadow="xl" m="md" p="xl" withBorder flex={1} miw={250}>
       <Stack>
         <TextInput
           withAsterisk

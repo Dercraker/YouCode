@@ -48,7 +48,7 @@ const NewLessonCard = ({ courseId }: NewLessonCardProps) => {
       });
 
       router.push(
-        LINKS.Admin.AdminLesson.href
+        LINKS.Admin.AdminEditLesson.href
           .replace('{1}', courseId)
           .replace('{2}', data.data!.id),
       );

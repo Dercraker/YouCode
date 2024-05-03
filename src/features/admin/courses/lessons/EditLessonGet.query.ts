@@ -13,6 +13,7 @@ export const EditLessonGetQuery = async ({ slug }: EditLessonGETQuery) => {
       id: true,
       name: true,
       state: true,
+      content: true,
     },
   });
 

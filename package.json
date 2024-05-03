@@ -24,6 +24,7 @@
     "@mantine/notifications": "^7.8.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
+    "@mdxeditor/editor": "^3.0.4",
     "@next/mdx": "^14.2.3",
     "@prisma/client": "^5.13.0",
     "@react-email/components": "0.0.15",

@@ -1,0 +1,50 @@
+.theme {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  color: var(--mantine-color-dark-text);
+  background: var(--mantine-color-dark-6);
+
+  --baseBg: var(--mantine-color-dark-0);
+  --baseBgActive: var(--mantine-color-dark-3);
+  --baseBorderHover: var(--mantine-color-dark-2);
+  --baseText: var(--mantine-primary-color-8);
+  --baseTextContrast: var(--mantine-color-text);
+  --baseLine: var(--red-11);
+
+  /* --accentBgSubtle: var(--red-11); */
+  /* --accentBg: var(--red-11); */
+  /* --accentBgHover: var(--red-11); */
+  /* --accentBgActive: var(--red-11); */
+  /* --accentLine: var(--red-11); */
+  /* --accentBorder: var(--red-11); */
+  /* --accentBorderHover: var(--red-11); */
+  /* --accentSolid: var(--red-11); */
+  /* --accentSolidHover: var(--red-11); */
+  /* --accentText: var(--red-11); */
+  /* --accentTextContrast: var(--red-11); */
+
+  /* --baseBase: var(--red-11); */
+  /* /* --baseBgSubtle: var(--red-11); */
+  /* /* --baseBgHover: var(--red-11); */
+  /* /* --baseBorder: var(--red-11); */
+  /* /* --baseSolid: var(--red-11); */
+  /* --baseSolidHover: var(--red-11); */
+
+  /* --admonitionTipBg: var(--red-11); */
+  /* --admonitionTipBorder: var(--red-11); */
+
+  /* --admonitionInfoBg: var(--red-11); */
+  /* --admonitionInfoBorder: var(--red-11); */
+
+  /* --admonitionCautionBg: var(--red-11); */
+  /* --admonitionCautionBorder: var(--red-11); */
+
+  /* --admonitionDangerBg: var(--red-11); */
+  /* --admonitionDangerBorder: var(--red-11); */
+
+  /* --admonitionNoteBg: var(--red-11); */
+  /* --admonitionNoteBorder: var(--red-11); */
+}

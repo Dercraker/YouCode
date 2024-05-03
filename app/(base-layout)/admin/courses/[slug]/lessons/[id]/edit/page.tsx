@@ -1,9 +1,10 @@
 import EditLessonCard from '@/features/admin/courses/lessons/EditLessonCard';
+import EditLessonContentCard from '@/features/admin/courses/lessons/EditLessonContentCard';
 import { EditLessonGetQuery } from '@/features/admin/courses/lessons/EditLessonGet.query';
 import { EditLessonType } from '@/lib/Zod/admin/course/lessons/EditLesson.schema';
 import { requiredAuth } from '@/lib/auth/helper';
 import { PageParams } from '@/types/next';
-import { Container, Divider, Stack, Title } from '@mantine/core';
+import { Container, Divider, Flex, Stack, Title } from '@mantine/core';
 
 type RoutePageProps = {
   id: string;
@@ -17,13 +18,19 @@ const RoutePage = async ({
   const lesson: EditLessonType = await EditLessonGetQuery({ slug });
 
   return (
-    <Container>
+    <Container size="xl">
       <Stack>
         <Stack gap="xs">
           <Title>Edit Lesson</Title>
           <Divider />
         </Stack>
-        <EditLessonCard lesson={lesson} />
+        <Flex wrap="wrap">
+          <EditLessonCard lesson={lesson} />
+          <EditLessonContentCard
+            lessonId={lesson.id}
+            markdown={lesson.content}
+          />
+        </Flex>
       </Stack>
     </Container>
   );
