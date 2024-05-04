@@ -1,12 +1,12 @@
 import { z } from 'zod';
-import { CourseSateSchema } from './CourseState.schema';
+import { CourseStateSchema } from './CourseState.schema';
 
 export const EditCourseGetQuerySchema = z.object({
   id: z.string(),
   image: z.string(),
   name: z.string(),
   presentation: z.string(),
-  state: CourseSateSchema,
+  state: CourseStateSchema,
 });
 
 export type EditCourseGetQueryType = z.infer<typeof EditCourseGetQuerySchema>;

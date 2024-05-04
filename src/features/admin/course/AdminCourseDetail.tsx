@@ -1,4 +1,4 @@
-import { CourseSateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
+import { CourseStateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
 import { LINKS } from '@/utils/NavigationLinks';
 import {
   AspectRatio,
@@ -37,7 +37,7 @@ const AdminCourseDetail = ({ course }: AdminCourseDetailProps) => {
         <Stack gap="0">
           <Badge
             color={
-              course.state === CourseSateSchema.enum.DRAFT ? 'red' : 'teal'
+              course.state === CourseStateSchema.enum.DRAFT ? 'red' : 'teal'
             }>
             {course.state}
           </Badge>

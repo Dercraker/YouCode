@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const CourseSateSchema = z.enum(['DRAFT', 'PUBLISHED']);
+export const CourseStateSchema = z.enum(['DRAFT', 'PUBLISHED']);
 
-export type CourseSateType = z.infer<typeof CourseSateSchema>;
+export type CourseStateType = z.infer<typeof CourseStateSchema>;

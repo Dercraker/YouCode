@@ -1,5 +1,6 @@
 import { CourseQuerySchemaType } from '@/lib/Zod/admin/course/CouseQuery.schema';
 import { prisma } from '@/lib/prisma/prisma';
+import { Prisma } from '@prisma/client';
 
 export const courseQuery = async ({
   id,
@@ -50,3 +51,7 @@ export const courseQuery = async ({
 
   return { ...course, users };
 };
+
+export type CourseQueryType = NonNullable<
+  Prisma.PromiseReturnType<typeof courseQuery>
+>;

@@ -1,8 +1,8 @@
 'use client';
 
 import {
-  CourseSateSchema,
-  CourseSateType,
+  CourseStateSchema,
+  CourseStateType,
 } from '@/lib/Zod/admin/course/CourseState.schema';
 import { Combobox, Group, InputBase, useCombobox } from '@mantine/core';
 import { IconNotes, IconPencil } from '@tabler/icons-react';
@@ -10,13 +10,13 @@ import { useEffect, useState } from 'react';
 
 export type CouseStateSelectorProps = {
   label?: string;
-  defaultValue?: CourseSateType;
+  defaultValue?: CourseStateType;
   selectedValue: (value: string) => void;
 };
 
 const transportModes: { name: string; icon: JSX.Element }[] = [
-  { name: CourseSateSchema.enum.DRAFT.toString(), icon: <IconPencil /> },
-  { name: CourseSateSchema.enum.PUBLISHED.toString(), icon: <IconNotes /> },
+  { name: CourseStateSchema.enum.DRAFT.toString(), icon: <IconPencil /> },
+  { name: CourseStateSchema.enum.PUBLISHED.toString(), icon: <IconNotes /> },
 ];
 
 export const CouseStateSelector = ({

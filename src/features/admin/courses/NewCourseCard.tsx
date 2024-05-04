@@ -1,7 +1,7 @@
 'use client';
 
 import useNotify from '@/hooks/useNotify';
-import { CourseSateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
+import { CourseStateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
 import {
   NewCourseSchema,
   NewCourseType,
@@ -23,7 +23,7 @@ const NewCourseCard = ({}: NewCourseCardProps) => {
       image: '',
       name: '',
       presentation: '',
-      state: CourseSateSchema.Enum.DRAFT,
+      state: CourseStateSchema.Enum.DRAFT,
     },
     validate: zodResolver(NewCourseSchema),
   });
@@ -77,11 +77,11 @@ const NewCourseCard = ({}: NewCourseCardProps) => {
         <CouseStateSelector
           selectedValue={(value: string) => {
             console.log('🚀 ~ EditCourseCard ~ value:', value);
-            courseForm.setFieldValue('state', CourseSateSchema.parse(value));
+            courseForm.setFieldValue('state', CourseStateSchema.parse(value));
             console.log('🚀 ~ EditCourseCard ~ courseForm:', courseForm.values);
           }}
           label="State"
-          defaultValue={CourseSateSchema.enum.DRAFT}
+          defaultValue={CourseStateSchema.enum.DRAFT}
         />
         <Button
           onClick={handleSubmit}

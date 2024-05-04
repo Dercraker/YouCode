@@ -1,7 +1,7 @@
 'use client';
 
 import useNotify from '@/hooks/useNotify';
-import { CourseSateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
+import { CourseStateSchema } from '@/lib/Zod/admin/course/CourseState.schema';
 import {
   EditCourseSchema,
   EditCourseType,
@@ -72,7 +72,7 @@ const EditCourseCard = ({ course }: EditCourseCardProps) => {
         />
         <CouseStateSelector
           selectedValue={(value: string) => {
-            courseForm.setFieldValue('state', CourseSateSchema.parse(value));
+            courseForm.setFieldValue('state', CourseStateSchema.parse(value));
           }}
           label="State"
           defaultValue={course.state}
