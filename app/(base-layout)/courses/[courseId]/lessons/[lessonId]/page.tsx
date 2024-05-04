@@ -2,8 +2,10 @@ import JoinButton from '@/features/course/JoinButton';
 import Lesson from '@/features/course/lesson/Lesson';
 import LessonNavigation from '@/features/course/lesson/LessonNavigation';
 import { lessonQuery } from '@/features/course/lesson/lesson.query';
+import { LessonProgressSchema } from '@/lib/Zod/lesson/LessonsProgress.schema';
 import { requiredAuth } from '@/lib/auth/helper';
 import { prisma } from '@/lib/prisma/prisma';
+import { MarkInProgressAction } from '@/lib/server-actions/course/lesson/MarkInProgress.action';
 import { PageParams } from '@/types/next';
 import { Container, Divider, Group, Stack, Title } from '@mantine/core';
 import { notFound } from 'next/navigation';
@@ -19,6 +21,7 @@ const RoutePage = async ({
   const user = await requiredAuth();
 
   const lesson = await lessonQuery({ lessonId, userId: user.id });
+  console.log('🚀 ~ lesson:', lesson);
 
   if (!lesson) {
     notFound();
@@ -37,6 +40,15 @@ const RoutePage = async ({
       },
     },
   });
+
+  if (
+    user &&
+    lesson &&
+    isAuthorized?.users.length &&
+    (lesson.users.length === 0 ||
+      lesson.users[0].progress === LessonProgressSchema.enum.NOT_STARTED)
+  )
+    await MarkInProgressAction(lessonId);
 
   if (lesson.state !== 'PUBLIC' && !isAuthorized?.users.length) {
     return (

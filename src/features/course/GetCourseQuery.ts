@@ -35,6 +35,9 @@ export const GetCourseQuery = async ({ courseId }: { courseId: string }) => {
             },
           },
         },
+        orderBy: {
+          rank: 'asc',
+        },
       },
     },
   });
