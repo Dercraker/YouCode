@@ -3,6 +3,7 @@ import { ServerMdx } from '@/lib/markdown/ServerMdx';
 import { MarkAsCompleteAction } from '@/lib/server-actions/course/lesson/MarkAsComplete.Action';
 import { MarkInProgressAction } from '@/lib/server-actions/course/lesson/MarkInProgress.action';
 import { Button, Group, Paper, Stack, Title } from '@mantine/core';
+import OpenLessonNavigationDrawerButton from './OpenLessonNavigationDrawerButton';
 import { LessonType } from './lesson.query';
 
 interface LessonProps {
@@ -11,9 +12,12 @@ interface LessonProps {
 
 const Lesson = ({ lesson }: LessonProps) => {
   return (
-    <Paper shadow="xl" p="xl" withBorder flex={5}>
+    <Paper shadow="xl" p="xl" withBorder miw="40em" flex={5}>
       <Stack>
-        <Title>{lesson.name}</Title>
+        <Group align="center">
+          <OpenLessonNavigationDrawerButton />
+          <Title>{lesson.name}</Title>
+        </Group>
         <ServerMdx source={lesson.content} />
         <Group justify="end">
           <form>

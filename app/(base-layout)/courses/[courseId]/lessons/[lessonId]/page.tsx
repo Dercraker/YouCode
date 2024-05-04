@@ -1,6 +1,7 @@
+import { GetCourseQuery } from '@/features/course/GetCourseQuery';
 import JoinButton from '@/features/course/JoinButton';
 import Lesson from '@/features/course/lesson/Lesson';
-import LessonNavigation from '@/features/course/lesson/LessonNavigation';
+import LessonNavigationCard from '@/features/course/lesson/LessonNavigationCard';
 import { lessonQuery } from '@/features/course/lesson/lesson.query';
 import { LessonProgressSchema } from '@/lib/Zod/lesson/LessonsProgress.schema';
 import { requiredAuth } from '@/lib/auth/helper';
@@ -41,6 +42,11 @@ const RoutePage = async ({
     },
   });
 
+  const course = await GetCourseQuery({ courseId });
+  if (!course) {
+    return notFound();
+  }
+
   if (
     user &&
     lesson &&
@@ -64,7 +70,7 @@ const RoutePage = async ({
 
   return (
     <Group align="start">
-      <LessonNavigation courseId={courseId} />
+      <LessonNavigationCard course={course} />
       <Lesson lesson={lesson} />
     </Group>
   );
