@@ -3,6 +3,7 @@
 import { LogoSvg } from '@/components/svg/LogoSvg';
 import { SignUpCredentialsForm } from '@/features/auth/signUp/SignUpCredentialsForm';
 import { Card, Space, Stack, Text } from '@mantine/core';
+import Link from 'next/link';
 
 const SignUpCard = () => {
   return (

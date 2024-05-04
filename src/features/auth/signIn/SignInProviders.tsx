@@ -12,6 +12,7 @@ import {
 } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import { SignInCredentialsAndMagicLinkForm } from './SignInCredentialsAndMagicLinkForm';
+import Link from 'next/link';
 
 export const SignInProviders = () => {
   const { data: providers, isPending } = useQuery({

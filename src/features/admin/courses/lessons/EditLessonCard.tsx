@@ -23,6 +23,7 @@ const EditLessonCard = ({ lesson }: EditLessonCardProps) => {
       id: lesson.id,
       name: lesson.name,
       state: lesson.state,
+      content: lesson.content,
     },
     validate: zodResolver(EditLessonSchema),
   });

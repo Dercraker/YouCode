@@ -19,4 +19,8 @@ export const SiteConfig = {
   auth: {
     password: true as boolean,
   },
+  maker: {
+    name: 'Dercraker',
+    url: 'https://dercraker.fr',
+  },
 };
