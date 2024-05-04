@@ -19,7 +19,7 @@ const SignUpCard = () => {
           <Text>
             You already have an account ?{' '}
             <Text
-              component="a"
+              component={Link}
               href="/auth/signin"
               fs="italic"
               td="underline"

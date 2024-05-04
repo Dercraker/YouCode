@@ -12,7 +12,7 @@ const LinksGroup = ({ data, title }: LinksGroupProps) => {
   const links = data.map((link, index) => (
     <Text
       className={classes.link}
-      component={Link as unknown as 'a'}
+      component={Link}
       href={link.href}
       key={index}>
       {link.label}

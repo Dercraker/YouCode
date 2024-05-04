@@ -2,6 +2,7 @@
 
 import { useHref } from '@/hooks/useHref';
 import { Button, ButtonProps } from '@mantine/core';
+import Link from 'next/link';
 
 interface SignInButtonProps {
   buttonProps?: ButtonProps;
@@ -12,7 +13,7 @@ const SignInButton = ({ buttonProps }: SignInButtonProps) => {
 
   return (
     <Button
-      component="a"
+      component={Link}
       href={`/auth/signin?callbackUrl=${href}`}
       variant="outline"
       {...buttonProps}>

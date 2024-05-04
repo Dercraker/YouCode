@@ -12,6 +12,7 @@ import {
   Title,
 } from '@mantine/core';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface AdminCourseDetailProps {
   course: any;
@@ -47,7 +48,7 @@ const AdminCourseDetail = ({ course }: AdminCourseDetailProps) => {
         <Stack>
           <Button
             variant="outline"
-            component="a"
+            component={Link}
             href={`${LINKS.Admin.AdminEditCourse.href.replace(
               '{1}',
               course.id,
@@ -56,7 +57,7 @@ const AdminCourseDetail = ({ course }: AdminCourseDetailProps) => {
           </Button>
           <Button
             variant="outline"
-            component="a"
+            component={Link}
             href={`${LINKS.Admin.AdminLessons.href.replace(
               '{1}',
               course.id,

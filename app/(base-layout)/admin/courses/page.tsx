@@ -10,6 +10,7 @@ import {
   Stack,
   Title,
 } from '@mantine/core';
+import Link from 'next/link';
 
 const RoutePage = async () => {
   const user = await requiredAuth();
@@ -20,7 +21,7 @@ const RoutePage = async () => {
         <Box>
           <Group justify="space-between">
             <Title>Courses</Title>
-            <Button component="a" href={LINKS.Admin.AdminNewCourse.href}>
+            <Button component={Link} href={LINKS.Admin.AdminNewCourse.href}>
               {LINKS.Admin.AdminNewCourse.label}
             </Button>
           </Group>

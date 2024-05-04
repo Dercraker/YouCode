@@ -74,7 +74,7 @@ export const SignInProviders = () => {
           <Text>
             {"You don't have an account ? "}
             <Text
-              component="a"
+              component={Link}
               href="/auth/signup"
               fs="italic"
               td="underline"

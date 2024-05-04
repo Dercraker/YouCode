@@ -1,8 +1,13 @@
 import AvatarImage from '@/components/ui/Avatar';
 import { LINKS } from '@/utils/NavigationLinks';
 import { ActionIcon, Group, Menu, rem, Text } from '@mantine/core';
-import { IconBook, IconChevronRight, IconSettings } from '@tabler/icons-react';
+import {
+  IconBook,
+  IconChevronRight,
+  IconShieldLock,
+} from '@tabler/icons-react';
 import { User } from 'next-auth';
+import Link from 'next/link';
 import LogoutMenuItem from './LogoutMenuItem';
 
 interface UserDropDownProps {
@@ -32,8 +37,8 @@ const UserDropDown = ({ user }: UserDropDownProps) => {
                 stroke={1.5}
               />
             }
-            component="a"
-            href="/account">
+            component={Link}
+            href={LINKS.Account.Settings.href}>
             <Group>
               <AvatarImage user={user} />
               <div>
@@ -50,28 +55,28 @@ const UserDropDown = ({ user }: UserDropDownProps) => {
           <Menu.Label>Admin</Menu.Label>
           <Menu.Item
             leftSection={
+              <IconShieldLock
+                style={{ width: rem(16), height: rem(16) }}
+                stroke={1.5}
+              />
+            }
+            component={Link}
+            href={LINKS.Admin.Admin.href}>
+            Dashboard
+          </Menu.Item>
+          <Menu.Item
+            leftSection={
               <IconBook
                 style={{ width: rem(16), height: rem(16) }}
                 stroke={1.5}
               />
             }
-            component="a"
+            component={Link}
             href={LINKS.Admin.AdminCourses.href}>
             Courses List
           </Menu.Item>
 
           <Menu.Label>Settings</Menu.Label>
-          <Menu.Item
-            leftSection={
-              <IconSettings
-                style={{ width: rem(16), height: rem(16) }}
-                stroke={1.5}
-              />
-            }
-            component="a"
-            href={LINKS.Account.Settings.href}>
-            {LINKS.Account.Settings.label}
-          </Menu.Item>
           <LogoutMenuItem />
         </Menu.Dropdown>
       </Menu>

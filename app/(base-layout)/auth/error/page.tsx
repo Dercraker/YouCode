@@ -2,6 +2,7 @@
 import { getError } from '@/features/auth/error/auth-error-mapping';
 import type { PageParams } from '@/types/next';
 import { Badge, Button, Container, Group, Paper, Title } from '@mantine/core';
+import Link from 'next/link';
 
 export default async function AuthErrorPage(props: PageParams<{}>) {
   const { errorMessage, error } = getError(props.searchParams.error);
@@ -13,7 +14,7 @@ export default async function AuthErrorPage(props: PageParams<{}>) {
         <Badge color="red">{error}</Badge>
         <Title order={2}>{errorMessage}</Title>
         <Group>
-          <Button component="a" href="/">
+          <Button component={Link} href="/">
             Home
           </Button>
           {/* <ContactSupportDialog variant="outline" /> */}

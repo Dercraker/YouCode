@@ -1,6 +1,7 @@
 'use client';
 
 import themes from '@/styles/themes';
+import '@mantine/charts/styles.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { Notifications } from '@mantine/notifications';
